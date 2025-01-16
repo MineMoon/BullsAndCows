@@ -73,13 +73,15 @@ void play_again(std::string choice, game_state &game ) {  //Предложение сыграть 
 		std::cout << "Хотите сыграть еще раз или выйти?\n1. Еще раз\n2. Выйти\n";
 		std::cin >> choice;
 	}
-	if (choice == "2") {
-		std::cout << "Спасибо за игру!\n";
-		game = exit_game; // назначаем статус выхода
-	}
-	else {
+	switch (stoi(choice)) {
+	case 1:
 		game = repeat_game; //назначаем переигрывание игры
 		system("cls");
+		break;
+	case 2:
+		std::cout << "Спасибо за игру!\n";
+		game = exit_game; // назначаем статус выхода
+		break;
 	}
 }
 

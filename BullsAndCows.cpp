@@ -20,18 +20,20 @@ int main() {
 			std::cout << "Неверно выбран противник, попробуйте еще раз: ";
 			std::cin >> choice;
 		}
-		if (choice[0] == '1') { 
+		switch (stoi(choice)) {
+		case 1:
 			number = Random(); //Генерируем число
-		}
-		else {
+			break;
+		case 2:
 			system("cls");
-			do { 
+			do {
 				std::cout << "Загадайте число из 4 уникальных цифр: ";
 				std::cin >> number; // Второй игрок/ противник задает число
 				system("cls"); // Чтобы игрок, который угадывает, не увидел ответа
-			} while (check_input(number) != 1); 
+			} while (check_input(number) != 1);
 			// check_input - булевая функция. Если с вводом проблемы, 
 			//   то она возращает 0, и цикл повторяется
+			break;
 		}
 		system("cls");
 		std::cout << "Число загадано!";
@@ -57,7 +59,7 @@ int main() {
 				std::cin >> choice;
 				while (choice.size() > 1 || ((int)choice[0] != 49 && (int)choice[0] != 50 && (int)choice[0]!=51)) { //Проверка ввода
 					system("cls");
-					std::cout << "Вы можете выбрать только 1, 2 или 3 ";
+					std::cout << "Вы можете выбрать только 1, 2 или 3\n";
 					std::cout << "Хотите сдаться и узнать ответ?)\n1. Да\n2. Нет\n3. Правила игры\n";
 					std::cin >> choice;
 				}
